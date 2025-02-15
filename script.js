@@ -1,17 +1,23 @@
-function add(){
+function add() {
     const name = document.getElementById("name").value;
-    const content= document.getElementById("content").value;
-    const elt= document.getElementById("todos");
-    var newElement = document.createElement("p");
-    newElement.textContent=name+" : "+content+" ";
-    document.getElementById("name").value="";
-    document.getElementById("content").value="";
-   
-    var deleteIcon = document.createElement("i");
-    deleteIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon"); // Add Font Awesome trash icon classes
+    const content = document.getElementById("content").value;
+    const elt = document.getElementById("todos");
+
+    const newElement = document.createElement("p");
+    newElement.textContent = `${name} : ${content} `;
+
+    document.getElementById("name").value = "";
+    document.getElementById("content").value = "";
+
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can"); 
+
     newElement.appendChild(deleteIcon);
     elt.appendChild(newElement);
-    deleteIcon.addEventListener('click',function(){
-        newElement.remove();
+
+    deleteIcon.addEventListener("click", function () {
+        newElement.remove(); 
     });
 }
+document.getElementById("submit").addEventListener("click", add);
+
